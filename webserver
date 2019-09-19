@@ -1,0 +1,19 @@
+# Cookbook:: webserver
+# Recipe:: default
+#
+# Copyright:: 2019, The Authors, All Rights Reserved.
+# webserver package installation
+package 'httpd' do
+   action :install
+end
+
+# webserver file configuration
+file '/var/www/html/index.html' do
+   content "This is my chef configued webserver file using our first chef cookbook default recipe with runlist case2\n"
+   action :create
+end
+
+# webserver service startup
+service 'httpd' do
+   action :start
+end
